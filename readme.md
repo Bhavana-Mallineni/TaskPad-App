@@ -26,7 +26,7 @@ TaskPad is a simple task management application built with Node.js and Express, 
 2. **Run the Application**:
    Start the application with:
    ```bash
-   node app.js
+   node index.js
    ```
 3. **Access the Application**:
    Open your browser and navigate to `http://localhost:3000` to access TaskPad.
@@ -34,9 +34,8 @@ TaskPad is a simple task management application built with Node.js and Express, 
 ## Folder Structure
 
 - `/files` - Stores each task as a separate `.txt` file.
-- `/public` - Contains static assets like CSS.
 - `/views` - Contains the EJS templates for the UI.
 
 ---
 
-> **Note**: This project is for demonstration purposes only and is not intended for production use.
+> **Note**: The node_modules folder is not provided. install express from npm.

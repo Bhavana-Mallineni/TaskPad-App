@@ -6,7 +6,6 @@ const fs = require("fs");
 app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", function (req, res) {
   fs.readdir("./files", function (err, files) {
@@ -16,7 +15,7 @@ app.get("/", function (req, res) {
 
 app.get("/files/:filename", function (req, res) {
   fs.readFile(`./files/${req.params.filename}`, "utf-8", function (err, data) {
-    res.render("show.ejs", { filename: filename, data: data });
+    res.render("show.ejs", { filename: req.params.filename, data: data });
   });
 });
 

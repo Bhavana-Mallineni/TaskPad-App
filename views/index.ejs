@@ -44,15 +44,23 @@
             <div class="tasks" style="display:flex; gap:20px; flex-wrap: wrap;">
                 <% if(files.length > 0) { %>
                 <% files.forEach(function(val){ %>
-                <div class="card text-white bg-info mb-3"
+                <div class="card text-bg-info mb-3"
                     style="min-width: 250px; max-width: 30vw;">
                     <div class="card-header">Task Details</div>
                     <div class="card-body">
                         <h5 class="card-title"><%= val.substring(0,
                             val.lastIndexOf('.')) %></h5>
-                        <a href="/files/<%= val %> " class="card-text"><small
-                                class="text-body-secondary">Read
-                                more</small></a>
+
+                        <div class="d-flex justify-content-between pe-3">
+                            <a href="/files/<%= val %> "
+                                class="card-link"
+                                style="color: #0C134F"><small>Read
+                                    more</small></a>
+                            <a class="card-link "
+                                href="/edit/<%= val%>"
+                                style="color: #0C134F"><small>rename</small></a>
+                        </div>
+
                     </div>
                 </div>
                 <%}) } else { %>

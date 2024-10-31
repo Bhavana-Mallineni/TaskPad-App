@@ -19,6 +19,23 @@ app.get("/files/:filename", function (req, res) {
   });
 });
 
+app.get("/edit/:filename", function (req, res) {
+  fs.readFile(`/files/${req.params.filename}`, "utf-8", function (err, data) {
+    res.render("edit.ejs", { filename: req.params.filename, data: data });
+  });
+});
+
+app.post("/edit", function (req, res) {
+  fs.rename(
+    `./files/${req.body.prevTitle}`,
+    `./files/${req.body.newTitle}`,
+    function (err) {
+      if (err) throw err;
+      res.redirect("/");
+    }
+  );
+});
+
 app.post("/create", function (req, res) {
   fs.writeFile(
     `./files/${req.body.title}.txt`,
